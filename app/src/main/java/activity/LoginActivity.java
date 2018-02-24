@@ -140,8 +140,10 @@ public class LoginActivity extends Activity {
                         String created_at = user
                                 .getString("created_at");
 
+                        String birthday = user.getString("birthday");
+
                         // Inserting row in users table
-                        db.addUser(name, email, uid, created_at);
+                        db.addUser(name, email, uid, created_at, birthday);
 
                         // Launch main activity
                         Intent intent = new Intent(LoginActivity.this,

@@ -29,6 +29,7 @@ public class InfoActivity extends Activity {
 
     private TextView txtName;
     private TextView txtEmail;
+    private TextView txtBirthday;
     private Button btnLogout;
     private Button btnGetNum;
     private Button btnStore;
@@ -44,6 +45,7 @@ public class InfoActivity extends Activity {
 
         txtName = (TextView) findViewById(R.id.name);
         txtEmail = (TextView) findViewById(R.id.email);
+        txtBirthday = (TextView) findViewById(R.id.birthday);
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnGetNum = (Button) findViewById(R.id.GetNumBtn);
 
@@ -74,10 +76,12 @@ public class InfoActivity extends Activity {
 
         String name = user.get("name");
         String email = user.get("email");
+        String birthday = user.get("birthday");
 
         // Displaying the user details on the screen
         txtName.setText(name);
         txtEmail.setText(email);
+        txtBirthday.setText(birthday);
 
         // Logout button click event
         btnLogout.setOnClickListener(new View.OnClickListener() {
