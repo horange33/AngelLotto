@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import tbc.angellotto.R;
 import interfaces.SearchService;
-import model.storesearch.Item;
+import model.storesearch.documents;
 import model.storesearch.StoreSearch;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -164,7 +164,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 16));
                     storeSrchRtrft();
 
-                //위치정보를 가져올 수 없을때
+                    //위치정보를 가져올 수 없을때
                 } else {
 
                     Log.e("위치정보를 가져올 수 없을때","===================");
@@ -209,15 +209,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void storeSrchRtrft() {
 
-        String apiLocation = gps_lat + "," + gps_lng + "";
-        Log.e("apiLocation","==========" + apiLocation);
-
+        String X = gps_lng +"";
+        String Y = gps_lat + "";
         Map<String, String> getQuery = new HashMap<>();
 
-        getQuery.put("apikey", "da734c36814e0d0404fe4a78ec9e394e");
+        getQuery.put("x", X);
         getQuery.put("query", "로또판매점");
-        getQuery.put("apiLocation", apiLocation);
-        getQuery.put("radius", "10000");
+        getQuery.put("y", Y);
+        getQuery.put("radius", "20000");
 
         ArrayList<String> keyset = new ArrayList<>(getQuery.keySet());
         ArrayList<String> encode = new ArrayList<>();
@@ -225,6 +224,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         for(String key : keyset){
             try {
                 encode.add(URLEncoder.encode( getQuery.get(key), "utf-8"));
+
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -234,20 +234,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.e("encode","===========" + a);
         }
 
-
         // 다음 Search Api 사용, 현재위치중심으로 검색
         Call<StoreSearch> storeSearchData = searchService.getStoreData(encode.get(0), encode.get(1),  encode.get(2), encode.get(3));
         storeSearchData.enqueue(new Callback<StoreSearch>() {
             @Override
             public void onResponse(Call<StoreSearch> call, Response<StoreSearch> response) {
-                Log.e("로또판매점 성공","=====================" + response.body().toString());
 
-                for (Item item : response.body().getChannel().getItem()){
-                    String title = item.getTitle();
-                    String address = item.getAddress() + "\n";
-                    String pNum = item.getPhone();
-                    double latitude = Double.parseDouble(item.getLatitude());
-                    double longitude = Double.parseDouble(item.getLongitude());
+
+                Log.e("로또판매점 성공","=====================" + response.body().toString());
+                for (documents documents : response.body().getDocuments()){
+
+                    //Log.e("테스트","=====================" + documents.getPlace_name() + documents.getAddress_name() + documents.getPhone() + documents.getX() + Double.parseDouble(documents.getY()));
+                    String title = documents.getPlace_name();
+                    String address = documents.getAddress_name() + "\n";
+                    String pNum = documents.getPhone();
+                    double latitude = Double.parseDouble(documents.getY());
+                    double longitude = Double.parseDouble(documents.getX());
 
 
                     LatLng searchedStore = new LatLng(latitude, longitude);

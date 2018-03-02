@@ -1,6 +1,6 @@
 package model.storesearch;
 
-public class Samename
+public class Same_name
 {
     private String keyword;
 
