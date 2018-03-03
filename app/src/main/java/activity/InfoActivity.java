@@ -34,6 +34,7 @@ public class InfoActivity extends Activity {
     private Button btnGetNum;
     private Button btnStore;
     private Button btnAroundStore;
+    private Button btnbiorhythm;
     private SQLiteHandler db;
     private SessionManager session;
 
@@ -48,6 +49,7 @@ public class InfoActivity extends Activity {
         txtBirthday = (TextView) findViewById(R.id.birthday);
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnGetNum = (Button) findViewById(R.id.GetNumBtn);
+        btnbiorhythm = (Button) findViewById(R.id.btnbiorhythm);
 
         btnStore = (Button) findViewById(R.id.btnStore);
 
@@ -113,6 +115,15 @@ public class InfoActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(InfoActivity.this, map.MapsActivity.class);
                 intent.putExtra("Map", "Around");
+                startActivity(intent);
+            }
+        });
+        // 바이오리듬
+        btnbiorhythm.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InfoActivity.this, BiorhythmActivity.class);
                 startActivity(intent);
             }
         });
