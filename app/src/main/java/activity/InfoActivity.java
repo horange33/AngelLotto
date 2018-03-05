@@ -32,7 +32,6 @@ public class InfoActivity extends Activity {
     private TextView txtBirthday;
     private Button btnLogout;
     private Button btnGetNum;
-    private Button btnStore;
     private Button btnAroundStore;
     private Button btnbiorhythm;
     private Button btntemp;
@@ -60,10 +59,6 @@ public class InfoActivity extends Activity {
         txtBirthday = (TextView) findViewById(R.id.birthday);
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnGetNum = (Button) findViewById(R.id.GetNumBtn);
-        btnbiorhythm = (Button) findViewById(R.id.btnbiorhythm);
-
-        btnStore = (Button) findViewById(R.id.btnStore);
-        btntemp = (Button) findViewById(R.id.btntemp);
         btnAroundStore = (Button) findViewById(R.id.btnAroundStore);
         // SqLite database handler
         db = new SQLiteHandler(getApplicationContext());
@@ -93,8 +88,8 @@ public class InfoActivity extends Activity {
 
         // Displaying the user details on the screen
         txtName.setText(name);
-        txtEmail.setText(email);
-        txtBirthday.setText(birthday);
+        //txtEmail.setText(email);
+        //txtBirthday.setText(birthday);
 
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -127,38 +122,12 @@ public class InfoActivity extends Activity {
                 startActivity(intent);
             }
         });
-        btnStore.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InfoActivity.this, map.NationStoreActivity.class);
-                startActivity(intent);
-            }
-        });
         btnAroundStore.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InfoActivity.this, map.MapsActivity.class);
                 intent.putExtra("Map", "Around");
-                startActivity(intent);
-            }
-        });
-        // 바이오리듬
-        btnbiorhythm.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InfoActivity.this, BiorhythmActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        btntemp.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InfoActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
