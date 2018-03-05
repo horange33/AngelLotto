@@ -35,8 +35,19 @@ public class InfoActivity extends Activity {
     private Button btnStore;
     private Button btnAroundStore;
     private Button btnbiorhythm;
+    private Button btntemp;
     private SQLiteHandler db;
     private SessionManager session;
+
+    private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.CAMERA,
+            Manifest.permission.INTERNET,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_WIFI_STATE,
+            Manifest.permission.CHANGE_WIFI_STATE
+    };  // 권한 추가 chkim
 
     LinearLayout ll_ex_container;
     @Override
@@ -52,7 +63,7 @@ public class InfoActivity extends Activity {
         btnbiorhythm = (Button) findViewById(R.id.btnbiorhythm);
 
         btnStore = (Button) findViewById(R.id.btnStore);
-
+        btntemp = (Button) findViewById(R.id.btntemp);
         btnAroundStore = (Button) findViewById(R.id.btnAroundStore);
         // SqLite database handler
         db = new SQLiteHandler(getApplicationContext());
@@ -84,6 +95,21 @@ public class InfoActivity extends Activity {
         txtName.setText(name);
         txtEmail.setText(email);
         txtBirthday.setText(birthday);
+
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            // 권한 획득에 대한 설명 보여주기
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            } else {
+
+                ActivityCompat.requestPermissions(this,
+                        PERMISSIONS_STORAGE,
+                        MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+            }
+        }
+
 
         // Logout button click event
         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +153,15 @@ public class InfoActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        btntemp.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InfoActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /**
@@ -157,5 +192,30 @@ public class InfoActivity extends Activity {
     }
     public void launchFullFragmentActivity(View v) {
         launchActivity(FullScannerFragmentActivity.class);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_CONTACTS: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
     }
 }
