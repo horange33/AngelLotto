@@ -27,6 +27,8 @@ public class InfoActivity extends Activity {
     private Class<?> mClss;
     private static final int ZXING_CAMERA_PERMISSION = 1;
 
+    private BioView bioView;
+
     private TextView txtName;
     private TextView txtEmail;
     private TextView txtBirthday;
@@ -51,6 +53,7 @@ public class InfoActivity extends Activity {
     LinearLayout ll_ex_container;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
@@ -104,6 +107,14 @@ public class InfoActivity extends Activity {
                         MY_PERMISSIONS_REQUEST_READ_CONTACTS);
             }
         }
+
+        // 바이오리듬 추가 tysong
+        bioView = (BioView)findViewById(R.id.myView);
+        bioView.setBirthDay(Integer.parseInt(birthday.substring(0,3)),
+                Integer.parseInt(birthday.substring(4,5)),
+                Integer.parseInt(birthday.substring(6,7)));
+
+        bioView.invalidate();
 
 
         // Logout button click event
