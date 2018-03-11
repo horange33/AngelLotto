@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/btnCreateNumber"
+        android:text = "가중치 번호 생성"
+        android:textSize = "15dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id = "@+id/btnCreateNumber2"
+        android:text = "무작위 번호 생성"
+        android:textSize = "15dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <TextView
+            android:id="@+id/tvNumber1"
+            android:textSize="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/tvNumber2"
+            android:textSize="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/tvNumber3"
+            android:textSize="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/tvNumber4"
+            android:textSize="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/tvNumber5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textSize="30dp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvNumber6"
+            android:textSize="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:text="+"/>
+
+        <TextView
+            android:id="@+id/tvNumber7"
+            android:textSize="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+</LinearLayout>

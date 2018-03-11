@@ -18,33 +18,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/ivNumber1"
+        <TextView
+            android:id="@+id/tvNumber1"
+            android:textSize="30dp"
             android:layout_width="40dp"
             android:layout_height="40dp" />
 
-        <ImageView
-            android:id="@+id/ivNumber2"
+        <TextView
+            android:id="@+id/tvNumber2"
+            android:textSize="30dp"
             android:layout_width="40dp"
             android:layout_height="40dp" />
 
-        <ImageView
-            android:id="@+id/ivNumber3"
+        <TextView
+            android:id="@+id/tvNumber3"
+            android:textSize="30dp"
             android:layout_width="40dp"
             android:layout_height="40dp" />
 
-        <ImageView
-            android:id="@+id/ivNumber4"
+        <TextView
+            android:id="@+id/tvNumber4"
+            android:textSize="30dp"
             android:layout_width="40dp"
             android:layout_height="40dp" />
 
-        <ImageView
-            android:id="@+id/ivNumber5"
+        <TextView
+            android:id="@+id/tvNumber5"
             android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_height="40dp"
+            android:textSize="30dp"
+            android:visibility="visible" />
 
-        <ImageView
-            android:id="@+id/ivNumber6"
+        <TextView
+            android:id="@+id/tvNumber6"
+            android:textSize="30dp"
             android:layout_width="40dp"
             android:layout_height="40dp" />
 
@@ -54,8 +61,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/ivNumber7"
+        <TextView
+            android:id="@+id/tvNumber7"
+            android:textSize="30dp"
             android:layout_width="40dp"
             android:layout_height="40dp" />
 
@@ -93,82 +101,82 @@
 
 
 
-<!--
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.sung_min.angellotto.MainActivity">
-
-    <TextView
-        android:id="@+id/tvLatestLottoCount"
-        android:gravity="center"
-        android:textSize="30dp"
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/ivNumber1"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-        <ImageView
-            android:id="@+id/ivNumber2"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-        <ImageView
-            android:id="@+id/ivNumber3"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-        <ImageView
-            android:id="@+id/ivNumber4"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-        <ImageView
-            android:id="@+id/ivNumber5"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-        <ImageView
-            android:id="@+id/ivNumber6"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+        android:layout_height="match_parent"
+        tools:context="com.example.sung_min.angellotto.MainActivity">
 
         <TextView
-            android:text="+"
+            android:id="@+id/tvLatestLottoCount"
+            android:gravity="center"
             android:textSize="30dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/ivNumber7"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/ivNumber1"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
 
-    <TextView
-        android:id="@+id/tvWinGameCount"
-        android:textSize="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/ivNumber2"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
 
-    <TextView
-        android:id="@+id/tvWinGameMoney"
-        android:textSize="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/ivNumber3"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
 
-</android.support.constraint.ConstraintLayout>
--->
+            <ImageView
+                android:id="@+id/ivNumber4"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <ImageView
+                android:id="@+id/ivNumber5"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <ImageView
+                android:id="@+id/ivNumber6"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:text="+"
+                android:textSize="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ivNumber7"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvWinGameCount"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvWinGameMoney"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </android.support.constraint.ConstraintLayout>
+    -->
